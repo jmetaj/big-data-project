@@ -3,6 +3,9 @@ import json
 from kafka import KafkaProducer
 from time import sleep
 from datetime import datetime, timedelta
+import os
+print("Current working directory:", os.getcwd())
+
 
 # Function to filter and transform the data into JSON format
 def create_json_record(row, start_time):
@@ -34,7 +37,7 @@ producer = KafkaProducer(
 start_time = datetime.now()
 
 # Read the CSV file and send data
-with open('output.csv', mode='r') as file:
+with open('big-data-project/output.csv', mode='r') as file:
     csv_reader = csv.DictReader(file)
     
     # Loop through the CSV rows and send data
